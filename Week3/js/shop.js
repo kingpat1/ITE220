@@ -1,14 +1,35 @@
-var price;
-var quantity;
-var total;
-var customer = "Iyke"
+var products = [
+	"Brooklyn T-Shirt White", 
+	"Brooklyn T-Shirt Black", 
+	"Apple Watch", 
+	"Android Phone"
+];
+var prices = [10,10,199,159];
+
+var customerName = "Marina";
+var total = 0;
+var customer = document.getElementById("name");
+customer.textContent = customerName;
 
 
-price = 5;
-quantity = 14;
-total = price * quantity;
+var productsText = "";
+var productsElement = document.getElementById("product-list");
 
-var customers = document.getElementById("name");
-var totals = document.getElementById("totalprice");
-customers.textContent = customer;
-totals.textContent = total;
+for(var i = 0; i<products.length;i++) {
+
+	productsText += "<li class='list-group-item'><span class='badge'>$"+prices[i]+"</span>"+products[i]+"</li>";
+	total += prices[i];
+}
+
+
+productsElement.innerHTML = productsText;
+
+var totalPriceElement = document.getElementById("total-price");
+totalPriceElement.textContent = total;
+
+var date = new Date ();
+var hour = date.getHours();
+//if else -- switch
+//5-12 Morning
+//12-17 Afternoon
+//Evening
